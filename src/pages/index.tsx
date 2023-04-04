@@ -13,21 +13,22 @@ export default function Home(): JSX.Element {
 
   useEffect(() => {
     axios
-      .get("http://localhost:2000/theater")
+      .get("http://localhost:2000/movie")
       .then((res) => setMovies(res.data));
   }, []);
 
-  console.log(movies);
+  console.log("asda",movies);
 
   return (
     <>
       <Header />
       <main>
-        <div>
+        <div className="inline-flex flex-wrap justify-around">
           {movies?.map((movie: MovieType, index: number) => (
             <Card {...movie} key={index} />
           ))}
         </div>
+        
       </main>
     </>
   );
