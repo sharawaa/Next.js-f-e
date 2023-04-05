@@ -2,22 +2,18 @@ import Header from "@/component/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "@/component/mainComponent/Card";
-
-interface MovieType {
-  title: string;
-  poster: string;
-}
+import { MovieType } from "../../utils/MovieType";
 
 export default function Home(): JSX.Element {
   const [movies, setMovies] = useState<MovieType[] | null>(null);
 
   useEffect(() => {
     axios
-      .get("http://localhost:2000/movie")
+      .get("http://localhost:2000/movies")
       .then((res) => setMovies(res.data));
   }, []);
 
-  console.log("asda",movies);
+  console.log("asda", movies);
 
   return (
     <>
@@ -28,7 +24,6 @@ export default function Home(): JSX.Element {
             <Card {...movie} key={index} />
           ))}
         </div>
-        
       </main>
     </>
   );
