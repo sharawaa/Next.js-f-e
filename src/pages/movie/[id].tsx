@@ -14,12 +14,20 @@ export default function Movie() {
   }, [query.id]);
 
   return (
-    <>
-      <picture>
-        <img src={data?.poster} alt="" />
-      </picture>
+   <div className="flex flex-row  ">
+      <section className="w-1/2">
+          <picture>
+              <img src={data?.poster} alt="" />
+          </picture>
 
-      <p>{data?.plot}</p>
-    </>
+
+      </section>
+      <section className="w-1/2">
+          <h1>{data?.title}</h1>
+          <p>{data?.plot}</p>
+          <p>{data?.fullplot}</p>
+
+      </section>
+   </div>
   );
 }
