@@ -13,22 +13,6 @@ export default function Movie() {
     }
   }, [query.id]);
 
-  // return (
-  //   <div className="flex">
-  //     <div className="flex justify-center w-96">
-  //       <section className="w-1/2">
-  //         <picture>
-  //           <img src={data?.poster} alt="pic" className="w-96" />
-  //         </picture>
-  //       </section>
-  //       <section className="w-1/2">
-  //         <h1 className="text-3xl">{data?.title}</h1>
-  //         <p>{data?.plot}</p>
-  //         <p>{data?.fullplot}</p>
-  //       </section>
-  //     </div>
-  //   </div>
-  // );
   return (
     <div>
       <div className="flex justify-center">
@@ -45,3 +29,49 @@ export default function Movie() {
     </div>
   );
 }
+
+// import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+// import { MovieType } from "../../../utils/MovieType";
+
+// export default function Movie({ data: movie }: { data: MovieType }) {
+//   return (
+//     <div>
+//       ID: {movie._id}
+//       <div>
+//         <h2>{movie.title}</h2>
+//         <picture>
+//           <img src={movie.poster} alt="" />
+//         </picture>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const res = await fetch(`http://localhost:-2000/movies-id`);
+//   const resJson = await res.json();
+//   const paths = await resJson.map((id: { _id: string }) => ({
+//     params: { id: id._id },
+//   }));
+
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// };
+
+// interface MovieProps {
+//   data: MovieType | null;
+// }
+
+// export const getStaticProps: GetStaticProps<MovieProps> = async ({
+//   params,
+// }: GetStaticPropsContext) => {
+//   const res = await fetch(`http://localhost:5001/movie/${params?.id}`);
+//   const movie = await res.json();
+//   return {
+//     props: {
+//       data: movie,
+//     },
+//   };
+// };
