@@ -15,10 +15,10 @@ export default function Search(): JSX.Element {
 
   return (
     <>
-      <div>{search && search[0].title}</div>
+      {/* <div>{search && search[0].title}</div>
       <picture>
         <img src={search && search[0].poster} alt="" />
-      </picture>
+      </picture> */}
     </>
   );
 }
